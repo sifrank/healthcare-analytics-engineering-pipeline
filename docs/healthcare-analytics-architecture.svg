@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">Healthcare Analytics Engineering Pipeline Architecture</title>
+<desc id="desc">Synthetic commercial data flows through Python ingestion into PostgreSQL, then dbt staging, intermediate, and dimensional marts. GitHub Actions runs the pipeline and tests. Power BI reporting is planned.</desc>
+<defs>
+  <linearGradient id="header" x1="0" x2="1"><stop stop-color="#102b4e"/><stop offset="1" stop-color="#1d456b"/></linearGradient>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto"><path d="M0 0L10 6L0 12Z" fill="#24496d"/></marker>
+  <style>
+    .h{font:700 34px Arial,sans-serif;fill:#fff}.sub{font:italic 18px Arial,sans-serif;fill:#dce9f5}
+    .head{font:700 22px Arial,sans-serif;fill:#102b4e}.body{font:18px Arial,sans-serif;fill:#172b43}.small{font:16px Arial,sans-serif;fill:#31465d}
+    .panel{stroke-width:2;rx:18}.step{font:700 19px Arial,sans-serif;fill:#17324f}.note{font:italic 16px Arial,sans-serif;fill:#41566d}
+    .arrow{stroke:#24496d;stroke-width:4;fill:none;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1600" height="900" fill="#f7f9fc"/>
+<rect x="24" y="22" width="1552" height="112" rx="20" fill="url(#header)"/>
+<text x="800" y="68" text-anchor="middle" class="h">Healthcare Analytics Engineering Pipeline</text>
+<text x="800" y="103" text-anchor="middle" class="sub">From synthetic source data to trusted, analytics-ready datasets</text>
+
+<!-- pipeline panels -->
+<rect x="28" y="190" width="220" height="330" class="panel" fill="#e8f1ff" stroke="#5593d9"/>
+<text x="138" y="232" text-anchor="middle" class="head">Synthetic Data</text>
+<text x="138" y="263" text-anchor="middle" class="small">CSV source files</text>
+<g fill="#fff" stroke="#2b6fb0" stroke-width="4"><rect x="83" y="292" width="80" height="82" rx="8"/><rect x="72" y="303" width="80" height="82" rx="8"/><rect x="61" y="314" width="80" height="82" rx="8"/></g>
+<text x="138" y="430" text-anchor="middle" class="body">Customers • Products</text><text x="138" y="460" text-anchor="middle" class="body">Sales reps • Transactions</text><text x="138" y="490" text-anchor="middle" class="body">Revenue targets</text>
+
+<rect x="290" y="190" width="220" height="330" class="panel" fill="#eaf3ff" stroke="#5593d9"/>
+<text x="400" y="232" text-anchor="middle" class="head">Python</text><text x="400" y="263" text-anchor="middle" class="small">Generation &amp; ingestion</text>
+<circle cx="400" cy="345" r="52" fill="#3776ab"/><text x="400" y="360" text-anchor="middle" font-size="48" font-weight="bold" fill="#ffd343">Py</text>
+<text x="400" y="440" text-anchor="middle" class="body">Generate synthetic data</text><text x="400" y="470" text-anchor="middle" class="body">Load CSVs into PostgreSQL</text>
+
+<rect x="552" y="190" width="220" height="330" class="panel" fill="#f1edfb" stroke="#8b69ca"/>
+<text x="662" y="232" text-anchor="middle" class="head">PostgreSQL</text><text x="662" y="263" text-anchor="middle" class="small">Warehouse • raw schema</text>
+<ellipse cx="662" cy="337" rx="62" ry="24" fill="#4b83b7"/><path d="M600 337v74c0 32 124 32 124 0v-74" fill="#4b83b7" stroke="#24577f" stroke-width="4"/><ellipse cx="662" cy="411" rx="62" ry="24" fill="#356e9f" stroke="#24577f" stroke-width="4"/>
+<text x="662" y="465" text-anchor="middle" class="body">Raw source tables</text>
+
+<rect x="814" y="164" width="300" height="390" class="panel" fill="#fff1e6" stroke="#e98a43"/>
+<text x="964" y="207" text-anchor="middle" class="head">dbt Transformations</text>
+<rect x="840" y="236" width="248" height="78" rx="12" fill="#fff" stroke="#c6b6a7" stroke-width="2"/>
+<text x="964" y="268" text-anchor="middle" class="step">Staging</text><text x="964" y="294" text-anchor="middle" class="note">Clean &amp; standardize</text>
+<path d="M964 316v22" class="arrow"/>
+<rect x="840" y="344" width="248" height="78" rx="12" fill="#fff" stroke="#c6b6a7" stroke-width="2"/>
+<text x="964" y="376" text-anchor="middle" class="step">Intermediate</text><text x="964" y="402" text-anchor="middle" class="note">Enrich &amp; apply business logic</text>
+<path d="M964 424v22" class="arrow"/>
+<rect x="840" y="452" width="248" height="78" rx="12" fill="#fff" stroke="#c6b6a7" stroke-width="2"/>
+<text x="964" y="484" text-anchor="middle" class="step">Dimensional Marts</text><text x="964" y="510" text-anchor="middle" class="note">5 dimensions • 3 fact tables</text>
+
+<rect x="1156" y="190" width="190" height="330" class="panel" fill="#e6f8f3" stroke="#36a88d"/>
+<text x="1251" y="232" text-anchor="middle" class="head">GitHub Actions</text><text x="1251" y="263" text-anchor="middle" class="small">Automated CI</text>
+<circle cx="1251" cy="345" r="48" fill="#172b43"/><path d="M1228 344l16 16 31-35" stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="1251" y="430" text-anchor="middle" class="body">Build models</text><text x="1251" y="460" text-anchor="middle" class="body">Run data tests</text><text x="1251" y="490" text-anchor="middle" class="body">Validate pipeline</text>
+
+<rect x="1388" y="190" width="184" height="330" class="panel" fill="#e6f8f3" stroke="#36a88d"/>
+<text x="1480" y="232" text-anchor="middle" class="head">Power BI</text><text x="1480" y="263" text-anchor="middle" class="small">Planned</text>
+<rect x="1438" y="320" width="28" height="90" rx="5" fill="#f2c811"/><rect x="1474" y="290" width="28" height="120" rx="5" fill="#e6b900"/><rect x="1510" y="340" width="28" height="70" rx="5" fill="#d7a900"/>
+<text x="1480" y="460" text-anchor="middle" class="body">Dashboards &amp;</text><text x="1480" y="488" text-anchor="middle" class="body">business insights</text>
+
+<!-- arrows -->
+<path d="M250 355h34" class="arrow"/><path d="M512 355h34" class="arrow"/><path d="M774 355h34" class="arrow"/><path d="M1116 355h34" class="arrow"/><path d="M1348 355h34" class="arrow"/>
+
+<!-- quality strip -->
+<rect x="814" y="578" width="300" height="72" rx="16" fill="#e4f7e9" stroke="#39a65a" stroke-width="2"/>
+<text x="964" y="608" text-anchor="middle" class="step">Data Quality Validation</text>
+<text x="964" y="633" text-anchor="middle" class="small">76 successful dbt build checks • 0 errors</text>
+
+<!-- footer cards -->
+<rect x="28" y="690" width="480" height="170" rx="16" fill="#fff" stroke="#c8d5e2" stroke-width="2"/>
+<rect x="28" y="690" width="480" height="42" rx="14" fill="#173653"/><text x="52" y="719" font-size="22" font-weight="bold" fill="#fff">Project Scope</text>
+<text x="52" y="770" class="body">Synthetic healthcare-technology commercial data</text><text x="52" y="803" class="body">18,000 transactions • 500 customers • 24 months</text><text x="52" y="836" class="small">No real patient or customer information</text>
+
+<rect x="530" y="690" width="480" height="170" rx="16" fill="#fff" stroke="#c8d5e2" stroke-width="2"/>
+<rect x="530" y="690" width="480" height="42" rx="14" fill="#173653"/><text x="554" y="719" font-size="22" font-weight="bold" fill="#fff">Technology</text>
+<text x="554" y="770" class="body">Python • PostgreSQL • SQL • dbt Core</text><text x="554" y="803" class="body">GitHub Actions • Git / GitHub</text><text x="554" y="836" class="small">Power BI reporting planned as next phase</text>
+
+<rect x="1032" y="690" width="540" height="170" rx="16" fill="#fff" stroke="#c8d5e2" stroke-width="2"/>
+<rect x="1032" y="690" width="540" height="42" rx="14" fill="#173653"/><text x="1056" y="719" font-size="22" font-weight="bold" fill="#fff">Build Results</text>
+<text x="1056" y="780" font-size="34" font-weight="bold" fill="#16834b">76 checks passed</text><text x="1056" y="817" class="body">0 warnings • 0 errors • CI workflow successful</text>
+</svg>
