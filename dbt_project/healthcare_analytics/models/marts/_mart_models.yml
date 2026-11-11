@@ -1,0 +1,137 @@
+
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Customer dimension containing customer attributes."
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_product
+    description: "Product dimension containing product attributes."
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_sales_rep
+    description: "Sales representative dimension."
+    columns:
+      - name: sales_rep_id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_region
+    description: "Standardized regional dimension."
+    columns:
+      - name: region_key
+        data_tests:
+          - unique
+          - not_null
+      - name: region
+        data_tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: "Calendar dimension covering 2024 through 2025."
+    columns:
+      - name: date_key
+        data_tests:
+          - unique
+          - not_null
+      - name: full_date
+        data_tests:
+          - unique
+          - not_null
+
+  - name: fact_revenue
+    description: "Transaction-grain revenue fact table."
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+      - name: sales_rep_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_sales_rep')
+                field: sales_rep_id
+      - name: date_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: region_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_key
+
+  - name: fact_sales_targets
+    description: "Monthly revenue targets at the region-month grain."
+    columns:
+      - name: date_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: region_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_key
+
+  - name: fact_customer_activity
+    description: "Customer purchasing activity at the customer-month grain."
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+      - name: date_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: region_key
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_region')
+                field: region_key

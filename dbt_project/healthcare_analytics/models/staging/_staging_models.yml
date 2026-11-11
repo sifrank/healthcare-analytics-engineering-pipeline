@@ -1,0 +1,81 @@
+
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Cleaned customer records from the raw customer dataset."
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        data_tests:
+          - not_null
+
+  - name: stg_products
+    description: "Cleaned product records with standardized pricing."
+    columns:
+      - name: product_id
+        data_tests:
+          - unique
+          - not_null
+      - name: product_name
+        data_tests:
+          - not_null
+
+  - name: stg_sales_reps
+    description: "Cleaned sales representative records."
+    columns:
+      - name: sales_rep_id
+        data_tests:
+          - unique
+          - not_null
+      - name: sales_rep_name
+        data_tests:
+          - not_null
+
+  - name: stg_transactions
+    description: "Cleaned transaction-level sales and revenue records."
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: customer_id
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_products')
+                field: product_id
+      - name: sales_rep_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_sales_reps')
+                field: sales_rep_id
+      - name: revenue
+        data_tests:
+          - not_null
+
+  - name: stg_revenue_targets
+    description: "Cleaned monthly revenue targets by region."
+    columns:
+      - name: target_month
+        data_tests:
+          - not_null
+      - name: region
+        data_tests:
+          - not_null
+      - name: revenue_target
+        data_tests:
+          - not_null

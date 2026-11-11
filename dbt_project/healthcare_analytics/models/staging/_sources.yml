@@ -1,0 +1,14 @@
+
+version: 2
+
+sources:
+  - name: raw
+    database: healthcare_analytics
+    schema: raw
+    tables:
+      - name: customers
+      - name: products
+      - name: sales_reps
+      - name: transactions
+      - name: revenue_targets
+

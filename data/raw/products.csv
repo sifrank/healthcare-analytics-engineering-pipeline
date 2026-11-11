@@ -1,0 +1,6 @@
+product_id,product_name,category,unit_price
+101,Treatment System,Equipment,45000
+102,Treatment Chair,Equipment,12000
+103,Consumable Kit,Consumables,850
+104,Replacement Component,Parts,1250
+105,Service Package,Services,5000
