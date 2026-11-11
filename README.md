@@ -6,36 +6,9 @@ The project simulates a healthcare technology company's commercial operations, i
 
 ## Project Architecture
 
-```text
-Synthetic CSV Data
-       |
-       v
-Python Data Generation
-       |
-       v
-Python Ingestion
-       |
-       v
-PostgreSQL (Raw Layer)
-       |
-       v
-dbt Transformation
-       |
-       +--> Staging Models
-       |
-       +--> Intermediate Models
-       |
-       +--> Dimensional Marts
-       |
-       v
-Automated dbt Testing
-       |
-       v
-GitHub Actions CI
-       |
-       v
-Power BI (Planned)
-```
+![Healthcare Analytics Engineering Pipeline Architecture](docs/healthcare-analytics-architecture.svg)
+
+The workflow generates synthetic commercial datasets, ingests them into PostgreSQL, transforms them through dbt staging, intermediate, and dimensional mart models, and validates the build through GitHub Actions. Power BI reporting is planned as a subsequent phase.
 
 ## Technology Stack
 
