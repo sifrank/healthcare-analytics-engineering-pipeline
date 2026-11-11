@@ -86,10 +86,10 @@ The project includes:
 - Revenue reconciliation between intermediate and final fact models
 
 **Latest local build results:**
-- 76 passing dbt checks
-- 0 warnings
-- 0 errors
-- 0 skipped tests
+- 16 dbt models materialized successfully (8 views and 8 tables)
+- 60 passing data tests, including schema tests and custom SQL tests
+- 76 successful dbt build checks in total
+- 0 warnings and 0 errors
 
 ## Automated CI Pipeline
 
@@ -116,8 +116,7 @@ healthcare-analytics-engineering-pipeline/
 │       └── dbt-build.yml
 │
 ├── data/
-│   ├── raw/
-│   └── sample/
+│   └── raw/
 │
 ├── dbt_project/
 │   └── healthcare_analytics/
@@ -133,7 +132,7 @@ healthcare-analytics-engineering-pipeline/
 │   └── test_connection.py
 │
 ├── docs/
-├── powerbi/
+│   └── healthcare-analytics-architecture.svg
 ├── requirements.txt
 └── README.md
 ```
